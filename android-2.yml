@@ -11,6 +11,12 @@ jobs:
     steps:
       - name: Check out source
         uses: actions/checkout@v4
+              - name: Apply updated source bundle
+        run: |
+          if [ -f GM_Powertrain_Diagnostics_Updated.zip ]; then
+            unzip -oq GM_Powertrain_Diagnostics_Updated.zip -d .
+          fi
+        
       - name: Apply updated source bundle (when uploaded)
         run: |
           if [ -f GM_Powertrain_Diagnostics_Updated.zip ]; then
